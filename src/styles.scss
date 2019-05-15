@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~angular-tree-component/dist/angular-tree-component.css';
+@import '~dragula/dist/dragula.css';
+
+
+body {
+  background-color: #f4f3f3;
+  margin: 0;
+  app-root * {
+    font-family: 'Exo', sans-serif;
+  }
+}
