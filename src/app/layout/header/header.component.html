@@ -1,3 +1,18 @@
 <div class="chat-page-header">
-  <a class="brand-text mx-auto" href="#">|GAME CHAIN|</a>
+  <a class="brand-text" href="#">|GAME CHAIN|</a>
+  <div class="header-right">
+    <div class="header-link" >
+      <fa-icon [icon]="['fas', 'home']"></fa-icon>
+      <span class="header-link-text">Home</span>
+    </div>
+    <div class="header-link" >
+      <fa-icon [icon]="['fas', 'bell']"></fa-icon>
+      <span class="header-link-text">Notifications</span>
+    </div>
+    <div class="header-link" >
+      <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+      <span class="header-link-text">Messages</span>
+    </div>
+    <auth-modal></auth-modal>
+  </div>
 </div>

@@ -4,13 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-//Bootstrap
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-//Flex Box
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { SharedModule } from './shared/shared.module';
-import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
@@ -18,19 +12,27 @@ import { AuthHeaderInterceptor } from './interceptors/header.interceptor';
 import { CatchErrorInterceptor } from './interceptors/http-error.interceptor';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { HeaderComponent2 } from './header/header.component';
-import { HomeComponent } from './home/home.component';
 
 import { ContainerComponent } from './layout/container/container.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { AuthModalComponent } from './layout/shared/auth/auth-modal/auth-modal.component';
+import { LoginFormComponent } from './layout/shared/auth/login-form/login-form.component';
+import { PassResetFormComponent } from './layout/shared/auth/pass-reset-form/pass-reset-form.component';
+import { ForgotPassFormComponent } from './layout/shared/auth/forgot-pass-form/forgot-pass-form.component';
+import { UsingEmailComponent } from './layout/shared/auth/register-forms/using-email/using-email.component';
+import { UsingMobileNumberComponent } from './layout/shared/auth/register-forms/using-mobile-number/using-mobile-number.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent2,
-    HomeComponent,
     HeaderComponent,
     ContainerComponent,
+    AuthModalComponent,
+    LoginFormComponent,
+    PassResetFormComponent,
+    ForgotPassFormComponent,
+    UsingEmailComponent,
+    UsingMobileNumberComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +40,6 @@ import { HeaderComponent } from './layout/header/header.component';
     HttpClientModule,
     RouterModule,
     SharedModule,
-    NgbModule, //Bootstrap
-    FlexLayoutModule, //FlexBox
-    AuthModule,
     AdminModule,
     AppRoutingModule,
   ],

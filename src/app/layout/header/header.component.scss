@@ -17,3 +17,18 @@
     text-decoration: none;
     margin: auto 20px; 
 }
+
+.header-right{
+    color: #B1B1B5;
+    margin: auto 20px auto auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-link{
+    margin: auto 0 auto 20px;
+}
+
+.header-link-text{
+    margin-left: 2px;
+}

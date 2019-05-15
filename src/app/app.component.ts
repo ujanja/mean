@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { DomSanitizer } from "@angular/platform-browser";
 
 
-import { AuthService } from './auth/auth.service';
+//import { AuthService } from './auth/auth.service';
 import * as schema from './schema/equipment.json';
 
 @Component({
@@ -18,13 +18,13 @@ export class AppComponent implements OnInit {
   public user: any;
 
   constructor(
-    private authService: AuthService,
+    //private authService: AuthService,
     private router: Router,
   ) {
   }
 
   public ngOnInit() {
-
+/*
     // init this.user on startup
     this.authService.me().subscribe(data => {
       this.user = data.user;
@@ -48,9 +48,6 @@ export class AppComponent implements OnInit {
   ngOnDestroy() { 
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
-    }
+    }*/
   }
-
-
-
 }
