@@ -70,6 +70,10 @@ returnValidationMessages(){
       { type: 'required', message: 'Email required' },
       
     ],
+    'phoneOrEmail': [
+      { type: 'required', message: 'Phone or email required' },
+      
+    ],
     }
     return form_validation_messages
 }

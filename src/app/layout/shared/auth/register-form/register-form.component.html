@@ -1,0 +1,71 @@
+<div class ="container"><!--Register container-->
+
+  <p *ngIf="verificationError.type" style="text-align:center">
+     <ngb-alert type=danger (close)="close()">
+        <div><h6><strong><i class="fas fa-exclamation"></i> {{verificationError.type}}</strong></h6></div>
+           {{verificationError.details}}
+     </ngb-alert>
+  </p>
+  <p *ngIf="modalErrorAlert.type" style="text-align:center">
+   <ngb-alert type=danger (close)="close()">
+      <div><h6><strong><i class="fas fa-exclamation"></i> {{ modalErrorAlert.type}}</strong></h6></div>
+      {{ modalErrorAlert.details}}
+   </ngb-alert>
+</p>
+
+  <form *ngIf="!modalSuccessAlert.type" [formGroup]="userForm" class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+      <div class="form-group">
+         <label class="label-pd-b_mr-b-0" for="username"><small>Username*</small></label>
+         <input formControlName="username" class="form-control" id="username" required>
+         <div *ngFor="let validation of form_validation_messages.username">
+            <small style="color:red" class="error-message" *ngIf="userForm.get('username').hasError(validation.type) && (userForm.get('username').dirty && userForm.get('username').touched  || userForm.get('username').touched) ">{{validation.message}} 
+            </small>
+         </div>
+      </div>
+      <div class="form-group">
+         <label class="label-pd-b_mr-b-0" for="email"><small>Phone or email*</small></label>
+         <input formControlName="email" type="email" class="form-control" id="email"  required>
+         <div *ngFor="let validation of form_validation_messages.phoneOrEmail">
+            <small style="color:red" class="error-message" *ngIf="userForm.get('email').hasError(validation.type) && (userForm.get('email').dirty && userForm.get('email').touched  || userForm.get('email').touched) ">{{validation.message}} 
+            </small>
+         </div>
+      </div>
+      <div class="form-group">
+         <label class="label-pd-b_mr-b-0" for="password"><small>Password*</small></label>
+         <input formControlName="password" type="password" class="form-control" id="password" required>
+         <div style="margin-top:-5px" *ngFor="let validation of form_validation_messages.password">
+            <small style="color:red" class="error-message" *ngIf="userForm.get('password').hasError(validation.type) && (userForm.get('password').dirty && userForm.get('password').touched  || userForm.get('password').touched) ">
+               {{validation.message}} 
+            </small>
+         </div>
+      </div>
+      <div class="form-group">
+         <label class="label-pd-b_mr-b-0" for="repeatPassword"><small>Confirm Password*</small></label>
+         <input formControlName="repeatPassword" type="password" class="form-control" id="repeatPassword"  required>
+         <div style="margin-top:-5px" *ngFor="let validation of form_validation_messages.password">
+            <small style="color:red" class="error-message" *ngIf="userForm.get('repeatPassword').hasError(validation.type) && (userForm.get('repeatPassword').dirty && userForm.get('repeatPassword').touched  || userForm.get('repeatPassword').touched) ">
+               {{validation.message}}
+            </small>
+         </div>
+      </div>
+
+     <div class="form-group">
+        <button (click)="register()"  class="btn btn-primary btn-block register-btn" [disabled]="!userForm.valid">Register</button>
+     </div>
+  </form>
+
+  <div *ngIf="modalSuccessAlert.type">
+     <p style="text-align:center">
+        <ngb-alert type=success [dismissible]="false">
+           <div><h6><strong><i class="fas fa-check-circle"></i> {{ modalSuccessAlert.type}}</strong></h6></div>
+           {{ modalSuccessAlert.details}}
+        </ngb-alert>
+     </p>
+     <p style="padding-top:-10px; margin-top:-20px; text-align:center">
+        <small  >Haven't recieved the email yet? Check your spam folder or
+           <button>Click here to resend the email.</button>
+        </small>
+     </p>
+  </div>
+
+</div>

@@ -28,23 +28,23 @@
     float: left;
     display: flex;
     background-color: #131633;
-    height: 66px;
-    max-height: 8vh;
+    //max-height: 8vh;
     margin: auto 0;
     @include for-phone-only{
         border-right: 1px solid rgb(81, 85, 112);
         width: 50%;
         justify-content: center;
+        height: 40px;
     }  
     @include for-tablet-portrait-only {
         width: 25%;
         border: none;
         justify-content: center;
+        height: 50px;
     }  
     @include for-desktop-up{
         border: none;
         max-height: 66px;
-        //max-height: 10vh;
         width: 25%;
         clear: none;
     }
@@ -53,20 +53,21 @@
 	display: inline-block;
     background-color: #131633;
     display: flex;
-    height: 66px;
-    max-height: 8vh;
     margin: auto 0;
     @include for-phone-only{
         width: 50%;
         justify-content: center;
+        height: 40px;
     }  
     @include for-tablet-portrait-only {
         width: 25%;
         justify-content: center;
+        height: 50px;
     }
     @include for-desktop-up{
         float: right;
         margin: auto 0 auto 20px;
+        height: 66px;
     }
 }
 .header-container .center {
@@ -76,19 +77,16 @@
     @include for-phone-only{
         clear: left;
         width: 100%;
-        max-height: 5vh;
-        height: 33px;  
+        height: 25px;  
     }
     @include for-tablet-portrait-only {
         clear: none;
         width: 50%;
-        height: 66px;
-        max-height: 8vh;   
+        height: 50px;
     }
     @include for-desktop-up{
         clear: none;
         height: 66px;
-        max-height: 10vh;
     }
 }
 

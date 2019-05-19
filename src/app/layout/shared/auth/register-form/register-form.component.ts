@@ -1,20 +1,20 @@
+
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, ValidationErrors, FormGroup, Validators } from '@angular/forms';
-import { LoginNRegistrationService } from '../../../../../services/auth-services/login-n-registration/login-n-registration.service';
+import { LoginNRegistrationService } from '../../../../services/auth-services/login-n-registration/login-n-registration.service';
 
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
-import { AuthModalService } from '../../../../../services/auth-services/auth-modal/auth-modal.service';
+import { AuthModalService } from '../../../../services/auth-services/auth-modal/auth-modal.service';
 import { Subscription } from 'rxjs';
-import { ValidationMessagesService } from '../../../../../services/shared-services/form-services/validation/validation-messages.service';
-
+import { ValidationMessagesService } from '../../../../services/shared-services/form-services/validation/validation-messages.service';
 
 @Component({
-  selector: 'register-using-email',
-  templateUrl: './using-email.component.html',
-  styleUrls: ['./using-email.component.scss']
+  selector: 'register-form',
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.scss']
 })
-export class UsingEmailComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
 
   modalErrorAlert: any = {};
   modalSuccessAlert: any = {};
@@ -29,7 +29,7 @@ export class UsingEmailComponent implements OnInit {
 
 
   constructor(
-            private loginNRegistrationService: LoginNRegistrationService,
+            private authService: LoginNRegistrationService,
             private authModalMessageService: AuthModalService,
             private validationMessagesService:ValidationMessagesService,
 
@@ -113,7 +113,7 @@ export class UsingEmailComponent implements OnInit {
       repeatPassword
     } = this.userForm.getRawValue();
 
-    this.loginNRegistrationService.register(username, email, password, repeatPassword)
+    this.authService.register(username, email, password, repeatPassword)
     .subscribe(
       data => {
         if(data.user){

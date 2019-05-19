@@ -19,8 +19,7 @@ import { AuthModalComponent } from './layout/shared/auth/auth-modal/auth-modal.c
 import { LoginFormComponent } from './layout/shared/auth/login-form/login-form.component';
 import { PassResetFormComponent } from './layout/shared/auth/pass-reset-form/pass-reset-form.component';
 import { ForgotPassFormComponent } from './layout/shared/auth/forgot-pass-form/forgot-pass-form.component';
-import { UsingEmailComponent } from './layout/shared/auth/register-forms/using-email/using-email.component';
-import { UsingMobileNumberComponent } from './layout/shared/auth/register-forms/using-mobile-number/using-mobile-number.component';
+import { RegisterFormComponent } from './layout/shared/auth/register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { UsingMobileNumberComponent } from './layout/shared/auth/register-forms/
     LoginFormComponent,
     PassResetFormComponent,
     ForgotPassFormComponent,
-    UsingEmailComponent,
-    UsingMobileNumberComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,

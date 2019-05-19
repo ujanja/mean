@@ -19,9 +19,7 @@
         
         <login-form *ngIf="getLoginForm()" [data]="data" (closeModalEmitter)="modal.dismiss()"></login-form>
 
-        <register-using-mobile-number *ngIf="getRegisterForm()" ></register-using-mobile-number><!--[data]="data"-->
-
-        <!--<register-using-email *ngIf="getRegisterForm()" ></register-using-email>[data]="data"-->
+        <register-form *ngIf="getRegisterForm()" [data]="data"></register-form>
 
         <forgot-pass-form *ngIf="getForgotPassForm()"></forgot-pass-form>
 
