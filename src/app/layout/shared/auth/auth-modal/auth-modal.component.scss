@@ -1,0 +1,70 @@
+.modal-header{
+    background-color: #131632 !important;
+    border-bottom: 1px solid rgb(125, 125, 128);
+}
+.modal-body{
+    background-color: #131632 !important;
+}
+
+.auth-toggle-buttons{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.login{
+    flex: 0 0 50%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+    background-color: #292F42;
+    color: rgb(125, 125, 128);
+    cursor: pointer;
+}
+
+.register{
+    flex: 0 0 50%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    padding: 0;
+    margin: 0;
+    background-color: #292F42;
+    color: rgb(125, 125, 128);
+    cursor: pointer;
+}
+.active{
+    background-color: #354069;
+    color: #B1B1B5;
+}
+
+  button:focus {
+    outline:0;
+}
+
+  .close-modal-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #B1B1B5 !important;
+    height: 40px;
+    margin-left: 15px;
+  }
+
+  fa-icon{
+    color: #B1B1B5 !important;
+    font-size: 20px;
+    margin: auto;
+  }
+
+  

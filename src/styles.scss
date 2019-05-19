@@ -2,9 +2,13 @@
 @import '~angular-tree-component/dist/angular-tree-component.css';
 @import '~dragula/dist/dragula.css';
 
-
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #131633;
+}
 body {
-  background-color: #f4f3f3;
+  background-color: #131633;
   margin: 0;
   app-root * {
     font-family: 'Exo', sans-serif;

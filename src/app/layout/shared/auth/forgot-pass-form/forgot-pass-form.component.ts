@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-forgot-pass-form',
+  selector: 'forgot-pass-form',
   templateUrl: './forgot-pass-form.component.html',
   styleUrls: ['./forgot-pass-form.component.scss']
 })

@@ -1,16 +1,35 @@
-<ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>Hello, World!</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-    </div>
-  </ng-template>
+<ng-template #content let-modal>   
+  <div class="modal-header" *ngIf="!getForgotPassForm() && !getPassResetForm()">
+     <span class="auth-toggle-buttons">
+
+        <h6 class="login" [ngClass]=" login_form? 'active': '' " (click)=loginForm() >login</h6>
+        <h6 class="register" [ngClass]=" register_form? 'active': '' " (click)=registerForm()>register</h6>
+
+     </span>
+     <div class="close-modal-div" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()" #closeModal>
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+     </div>
+  </div>
+
+  <button *ngIf="getForgotPassForm() || getPassResetForm()" type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()" (click)="resetModal()" #closeModal2>
+     <span aria-hidden="true">&times;</span>
+  </button>
   
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+  <div class="modal-body">
+        
+        <login-form *ngIf="getLoginForm()" [data]="data" (closeModalEmitter)="modal.dismiss()"></login-form>
+
+        <register-using-mobile-number *ngIf="getRegisterForm()" ></register-using-mobile-number><!--[data]="data"-->
+
+        <!--<register-using-email *ngIf="getRegisterForm()" ></register-using-email>[data]="data"-->
+
+        <forgot-pass-form *ngIf="getForgotPassForm()"></forgot-pass-form>
+
+        <pass-reset-form *ngIf="getPassResetForm()"></pass-reset-form><!--[data]="data"-->
+
+
+  </div>
+</ng-template>
+
+<a style="color:white" #openModal (click)="open(content)">LOGIN / REGISTER</a>
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pass-reset-form',
+  selector: 'pass-reset-form',
   templateUrl: './pass-reset-form.component.html',
   styleUrls: ['./pass-reset-form.component.scss']
 })

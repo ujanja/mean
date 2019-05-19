@@ -1,18 +1,66 @@
-<div class="chat-page-header">
-  <a class="brand-text" href="#">|GAME CHAIN|</a>
-  <div class="header-right">
-    <div class="header-link" >
-      <fa-icon [icon]="['fas', 'home']"></fa-icon>
-      <span class="header-link-text">Home</span>
+<!--
+  <div class="header-container">
+    <div class="left colx">
+      <a class="brand-text" href="#">|GAME CHAIN|</a>
     </div>
-    <div class="header-link" >
-      <fa-icon [icon]="['fas', 'bell']"></fa-icon>
-      <span class="header-link-text">Notifications</span>
+
+    <div class="header-buttons center colx">
+      <div class="header-link" >
+        <fa-icon [icon]="['fas', 'home']"></fa-icon>
+        <span class="header-link-text">Home</span>
+      </div>
+      <div class="header-link" >
+        <fa-icon [icon]="['fas', 'bell']"></fa-icon>
+        <span class="header-link-text">Notifications</span>
+      </div>
+      <div class="header-link" >
+        <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+        <span class="header-link-text">Messages</span>
+      </div>
     </div>
-    <div class="header-link" >
-      <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-      <span class="header-link-text">Messages</span>
+    
+    
+    <div class="auth-modal right">
+      <auth-modal></auth-modal>
     </div>
-    <auth-modal></auth-modal>
+
+  </div>
+-->
+<div class="header-container">
+  <!--Brand logo floated left-->
+  <div class="left header-col">
+    <a class="brand-logo" href="#">|GAME CHAIN|</a>
+  </div>
+
+  <div class="float-right-for-desktop-only">
+    <!--centered div for menu/header buttons-->
+    <div class="center header-col">
+      <div class="header-buttons">
+
+        <!--Home icon and button-->
+        <div class="header-button" >
+          <fa-icon [icon]="['fas', 'home']"></fa-icon>
+          <span class="header-link-text">Home</span>
+        </div>
+
+        <!--Notification icon and button-->
+        <div class="header-button" >
+          <fa-icon [icon]="['fas', 'bell']"></fa-icon>
+          <span class="header-link-text">Notifications</span>
+        </div>
+
+        <!--Message icon and button-->
+        <div class="header-button" >
+          <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+          <span class="header-link-text">Messages</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!--authentification modal floated right-->
+    <div class="right header-col">
+      <auth-modal class="auth-modal"></auth-modal>
+    </div>
   </div>
 </div>
