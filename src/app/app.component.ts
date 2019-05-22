@@ -4,8 +4,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { DomSanitizer } from "@angular/platform-browser";
 
 
-//import { AuthService } from './auth/auth.service';
+//import { loginNRegistrationService } from './auth/auth.service';
 import * as schema from './schema/equipment.json';
+import { LoginNRegistrationService } from './services/auth-services/login-n-registration/login-n-registration.service.js';
 
 @Component({
   selector: 'app-root',
@@ -18,26 +19,26 @@ export class AppComponent implements OnInit {
   public user: any;
 
   constructor(
-    //private authService: AuthService,
+    private loginNRegistrationService: LoginNRegistrationService,
     private router: Router,
-  ) {
-  }
+  ) { }
+
 
   public ngOnInit() {
-/*
+
     // init this.user on startup
-    this.authService.me().subscribe(data => {
+    this.loginNRegistrationService.me().subscribe(data => {
       this.user = data.user;
     });
 
     // update this.user after login/register/logout
-    this.userSubscription = this.authService.$userSource.subscribe((user) => {
+    this.userSubscription = this.loginNRegistrationService.$userSource.subscribe((user) => {
       this.user = user;
     });
   }
 
   logout(): void {
-    this.authService.signOut();
+    this.loginNRegistrationService.signOut();
     this.navigate('');
   }
 
@@ -48,6 +49,7 @@ export class AppComponent implements OnInit {
   ngOnDestroy() { 
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
-    }*/
+    }
   }
+  
 }

@@ -1,18 +1,18 @@
-@import '../../shared/mixins.scss';
+@import '../../shared/shared.styles.scss';
 // Dont use container class as there is a global style for containers in scss
 
 
 // Mobile first Code
 .header-container{
     min-width: 300px;
-    background-color: #131633;
+    background-color: $main-components-background-color;
     @include for-phone-only{}
     @include for-tablet-portrait-only {}
     @include for-desktop-up{
         width: 100%;
         height: 100%;
         padding: 0 20px;
-        background-color: #131633;
+        background-color: $main-components-background-color;
         display: flex;
         flex-direction: row;
         height: 66px;
@@ -27,7 +27,7 @@
 .header-container .left {
     float: left;
     display: flex;
-    background-color: #131633;
+    background-color: $main-components-background-color;
     //max-height: 8vh;
     margin: auto 0;
     @include for-phone-only{
@@ -51,7 +51,7 @@
 }
 .header-container .right {
 	display: inline-block;
-    background-color: #131633;
+    background-color: $main-components-background-color;
     display: flex;
     margin: auto 0;
     @include for-phone-only{
@@ -92,33 +92,39 @@
 
 .brand-logo{
     margin: auto 0;
-    color: #deddfd;
+    color: $brand-logo-color;
     text-decoration: none;    
     font-style: none;
+    font-family: 'Impact, Charcoal, sans-serif';
     
-    @include for-phone-only{}
-    @include for-tablet-portrait-only {}
-    @include for-desktop-up{
+    @include for-phone-only{
+        font-size: 16px;
+    }
+    @include for-tablet-portrait-only {
         font-size: 20px;
+    }
+    @include for-desktop-up{
+        font-size: 25px;
     }
 }
 .auth-modal{
     margin: auto 0;
-    color: #B1B1B5;
+    color: $auth-modal-text-color;
+    font-weight: bolder !important;
     @include for-phone-only{
         font-size: 12px;
         padding: 3px;
-        border: 3px solid #B1B1B5;
+        border: 3px solid $main-app-text-color-1;
     }
     @include for-tablet-portrait-only {
         font-size: 12px;
         padding: 3px;
-        border: 3px solid #B1B1B5;
+        border: 3px solid $main-app-text-color-1;
     }
     @include for-desktop-up{
-        font-size: 14px;
-        padding: 5px;
-        border: 5px solid #B1B1B5;
+        font-size: 16px;
+        padding: 8px;
+        border: 5px solid $main-app-text-color-1;
         flex-wrap: nowrap;
     }
 }
@@ -130,14 +136,14 @@
     @include for-phone-only{}
     @include for-tablet-portrait-only {}
     @include for-desktop-up{
-        color: #B1B1B5;
+        color: $main-app-text-color-1;
         display: flex;
         flex-direction: row;
         
-        background-color: #131633;
+        background-color: $main-components-background-color;
     } 
     .header-button{ // Note this is button the parent is buttons(plural)
-        color: #B1B1B5;
+        color: $main-app-text-color-1;
         font-size: 14px;
         @include for-phone-only{
             margin: auto;
@@ -155,7 +161,6 @@
     }
 }
 
-
 //for-desktop-up 
 @include for-desktop-up{
   
@@ -164,4 +169,25 @@
         display: flex;
         margin-left: auto    
     }
+}
+
+//For all
+// Remove drop-down down-arrow icon
+.dropdown-toggle::after {
+    display:none;
+}
+// center profile name 'box' container
+.profile-dropdown{
+    margin: auto 0;
+    .profile-dropdown-box{
+        background-color: $main-components-background-color;
+        button{
+            color: $main-app-text-color-1;   
+        }
+        button:hover{
+            background-color: $main-components-buttons-background-color-onHover;
+   
+        }
+        
+    } 
 }

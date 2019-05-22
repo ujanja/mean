@@ -11,9 +11,9 @@
      </div>
   </div>
 
-  <button *ngIf="getForgotPassForm() || getPassResetForm()" type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()" (click)="resetModal()" #closeModal2>
-     <span aria-hidden="true">&times;</span>
-  </button>
+   <div *ngIf="getForgotPassForm() || getPassResetForm()" class="close-pass-reset-modal">
+      <fa-icon [icon]="['fas', 'times']" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss()" (click)="resetModal()" #closeModal2></fa-icon>
+   </div>
   
   <div class="modal-body">
         
@@ -23,7 +23,7 @@
 
         <forgot-pass-form *ngIf="getForgotPassForm()"></forgot-pass-form>
 
-        <pass-reset-form *ngIf="getPassResetForm()"></pass-reset-form><!--[data]="data"-->
+        <pass-reset-form *ngIf="getPassResetForm()" [data]="data"></pass-reset-form><!--[data]="data"-->
 
 
   </div>

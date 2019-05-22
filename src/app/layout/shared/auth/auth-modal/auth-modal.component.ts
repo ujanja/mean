@@ -3,7 +3,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {NgbModal, NgbModalConfig} from '@ng-bootstrap/ng-bootstrap';
 import { AuthModalService } from '../../../../services/auth-services/auth-modal/auth-modal.service';
 import { Subscription } from 'rxjs';
-import { LoginThenBetService } from '../../../../services/auth-services/login-then-bet/login-then-bet.service';
 
 @Component({
   selector: 'auth-modal',
@@ -35,21 +34,12 @@ export class AuthModalComponent implements OnInit {
 
             private modalService: NgbModal,
             private authModalMessageService: AuthModalService,
-            private loginThenBetService:LoginThenBetService,
             config: NgbModalConfig,
 
             ) {
               // customize default values of modals used by this component tree
               config.backdrop = 'static';
               config.keyboard = false;
-
-              this.loginThenBetService.getMessage()
-                .subscribe(data =>{
-                  this.data=data;
-                    if (data==="Trying to place bets but not logged in."){
-                      this.openModal.nativeElement.click();
-                  }
-                })
 
               // subscribe to auth data messages
               this.authModalMessageService.getMessage()

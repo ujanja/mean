@@ -1,0 +1,45 @@
+label{
+    padding-bottom:0px !important;
+    margin-bottom:0px !important;
+}
+
+.authButtons:hover{
+    cursor: pointer;
+    color: rgb(107, 107, 255);
+    text-decoration: underline;
+    font-weight: bolder;
+}
+.container{
+    color: #B1B1B5 !important;
+}
+
+/* Start: Text input box color */
+input{
+    background-color : #2B2E4C !important;
+    border: none; 
+    color: rgb(177, 177, 177) !important;
+}
+
+input:focus {
+    background-color : #2B2E4C !important;
+    border: 0.5px solid rgb(0, 0, 90);
+    outline: none !important;
+    color: rgb(177, 177, 177) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #2B2E4C inset !important;
+    box-shadow: 0 0 0 30px #2B2E4C inset !important;
+    caret-color: rgb(177, 177, 177) !important;
+}
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(177, 177, 177) !important;
+    color: rgb(177, 177, 177) !important;
+    caret-color: rgb(177, 177, 177) !important;
+}
+/* End: Text input box color */
+

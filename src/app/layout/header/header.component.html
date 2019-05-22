@@ -1,35 +1,7 @@
-<!--
-  <div class="header-container">
-    <div class="left colx">
-      <a class="brand-text" href="#">|GAME CHAIN|</a>
-    </div>
-
-    <div class="header-buttons center colx">
-      <div class="header-link" >
-        <fa-icon [icon]="['fas', 'home']"></fa-icon>
-        <span class="header-link-text">Home</span>
-      </div>
-      <div class="header-link" >
-        <fa-icon [icon]="['fas', 'bell']"></fa-icon>
-        <span class="header-link-text">Notifications</span>
-      </div>
-      <div class="header-link" >
-        <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-        <span class="header-link-text">Messages</span>
-      </div>
-    </div>
-    
-    
-    <div class="auth-modal right">
-      <auth-modal></auth-modal>
-    </div>
-
-  </div>
--->
 <div class="header-container">
   <!--Brand logo floated left-->
   <div class="left header-col">
-    <a class="brand-logo" href="#">|GAME CHAIN|</a>
+    <a class="brand-logo" href="#">ujANja</a>
   </div>
 
   <div class="float-right-for-desktop-only">
@@ -39,20 +11,20 @@
 
         <!--Home icon and button-->
         <div class="header-button" >
-          <fa-icon [icon]="['fas', 'home']"></fa-icon>
-          <span class="header-link-text">Home</span>
+          <fa-icon [icon]="['fas', 'folder-minus']"></fa-icon>
+          <span class="header-link-text">Option 1</span>
         </div>
 
         <!--Notification icon and button-->
         <div class="header-button" >
-          <fa-icon [icon]="['fas', 'bell']"></fa-icon>
-          <span class="header-link-text">Notifications</span>
+          <fa-icon [icon]="['fas', 'chevron-circle-down']"></fa-icon>
+          <span class="header-link-text">Option 2</span>
         </div>
 
         <!--Message icon and button-->
         <div class="header-button" >
-          <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-          <span class="header-link-text">Messages</span>
+          <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+          <span class="header-link-text">Option 3</span>
         </div>
 
       </div>
@@ -60,7 +32,23 @@
 
     <!--authentification modal floated right-->
     <div class="right header-col">
-      <auth-modal class="auth-modal"></auth-modal>
+
+      <!--User profile displayed when someone is logged in style="font-size:20px;"-->      
+      <div ngbDropdown class="profile-dropdown" *ngIf="user">
+        <div class="auth-modal" id="profile-dropdown" ngbDropdownToggle>
+          <fa-icon  [icon]="['fas', 'user-alt']"></fa-icon>
+          {{user.username}}
+        </div>
+        <div ngbDropdownMenu aria-labelledby="profile-dropdown" class="profile-dropdown-box">
+          <button ngbDropdownItem *ngIf="user && user.isAdmin" [routerLink]="['admin']">Admin</button>
+          <button ngbDropdownItem (click)="navigate2(user._id)">Profile</button>
+          <button ngbDropdownItem href="#">Settings</button>
+          <button ngbDropdownItem (click)="logout()">Log Out</button>
+        </div>
+      </div>
+
+      <!--Auth modal displayed when someone is not logged in-->
+      <auth-modal *ngIf="!user" class="auth-modal"></auth-modal>
     </div>
   </div>
 </div>

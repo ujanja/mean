@@ -1,5 +1,4 @@
 input, textarea {
-
     background-color : #2B2E4C;
     border: none; 
 }
@@ -12,10 +11,34 @@ input:focus, textarea {
 input::placeholder {
     font-size: 14px; 
 }
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #2B2E4C inset !important;
+    box-shadow: 0 0 0 30px #2B2E4C inset !important;
+    caret-color: rgb(177, 177, 177) !important;
+}
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(177, 177, 177) !important;
+    color: rgb(177, 177, 177) !important;
+    caret-color: rgb(177, 177, 177) !important;
+}
+
 label{
     margin-bottom: 0px;
     small{
         color: rgb(177, 177, 177);
     }
 }
+
+// Edit the bootstrap defaults to center the text
+.alert-dismissible {
+    padding: 12px 20px !important;
+}
+
+
 

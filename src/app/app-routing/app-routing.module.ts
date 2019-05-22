@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //import { AuthGuard } from '../auth/auth-guard.service';
-import { ContainerComponent } from '../layout/container/container.component';
+import { HomeModule } from '../routes-modules/home/home.module';
+import { HomeMainContentComponent } from '../routes-modules/home/home-layout/home-main-content/home-main-content.component';
 
 const routes: Routes = [{
-  path: '',
-  component: ContainerComponent
-},/* {
-  path: 'auth',
-  loadChildren: 'app/auth/auth.module#AuthModule'
-},*/ {
-  path: 'admin',
-  loadChildren: 'app/admin/admin.module#AdminModule'
-}];
+  path: 'home',
+  component: HomeMainContentComponent,
+  loadChildren: () => HomeModule
+  }, 
+  {
+    path: 'admin',
+    loadChildren: 'app/admin/admin.module#AdminModule'
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

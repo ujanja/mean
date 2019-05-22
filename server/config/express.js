@@ -12,7 +12,16 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const routes = require('../routes/index.route');
 const config = require('./config');
-const passport = require('./passport')
+const passport = require('passport');
+
+//Redis server
+const redis = require("redis");
+const session = require('express-session');
+const redisStore = require('connect-redis')(session);
+const client = redis.createClient();
+
+// Load the full build.
+const _ = require('lodash');
 
 const app = express();
 
@@ -55,7 +64,24 @@ app.use(helmet());
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
 
-app.use(passport.initialize());
+// Express session middleware plus using redis
+// Start a session; we use Redis for the session store.
+// "secret" will be used to create the session ID hash (the cookie id and the redis key value)
+// "name" will show up as your cookie name in the browser
+// "cookie" is provided by default; you can add it to add additional personalized options
+// The "store" ttl is the expiration time for each Redis session ID, in seconds
+app.use(session({
+  secret: config.redisSessionSecret,
+  name: 'sessionCookie',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }, // Note that the cookie-parser module is no longer needed
+  store: new redisStore({ host: 'localhost', port: 6379, client: client, ttl: 600 }),
+}));
+
+require('./passport')(passport);
+app.use(passport.initialize(console.log("passport initialized")));
+app.use(passport.session(console.log("passport session")));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

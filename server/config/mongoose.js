@@ -10,7 +10,7 @@ mongoose.connect(mongoUri, { // https://mongoosejs.com/docs/deprecations.html
   useNewUrlParser: true, 
   useCreateIndex: true, 
   'useFindAndModify': false,
-  keepAlive: 1 
+  keepAlive: 1
 });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);

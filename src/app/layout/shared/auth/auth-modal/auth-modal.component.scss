@@ -1,9 +1,14 @@
+@import '../../../../shared/shared.styles.scss';
+// Don't use container or div because they will set global scss stylings that you may not want
+$auth-buttons-background-color: rgb(31, 31, 31) !default;
+$auth-buttons-background-color-active: rgb(70, 70, 70) !default;
+
 .modal-header{
-    background-color: #131632 !important;
-    border-bottom: 1px solid rgb(125, 125, 128);
+    background-color: $main-components-background-color!important;
+    border-bottom: 1px solid rgb(56, 56, 56);
 }
 .modal-body{
-    background-color: #131632 !important;
+    background-color: $main-components-background-color!important;
 }
 
 .auth-toggle-buttons{
@@ -23,7 +28,7 @@
     line-height: 40px;
     padding: 0;
     margin: 0;
-    background-color: #292F42;
+    background-color: $auth-buttons-background-color;
     color: rgb(125, 125, 128);
     cursor: pointer;
 }
@@ -39,18 +44,22 @@
     line-height: 40px;
     padding: 0;
     margin: 0;
-    background-color: #292F42;
+    background-color: $auth-buttons-background-color;
     color: rgb(125, 125, 128);
     cursor: pointer;
 }
 .active{
-    background-color: #354069;
+    background-color: $auth-buttons-background-color-active;
     color: #B1B1B5;
 }
 
   button:focus {
     outline:0;
 }
+  .close-pass-reset-modal{
+    background-color: $main-components-background-color!important;
+    display: flex;
+  }
 
   .close-modal-div{
     display: flex;

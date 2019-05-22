@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -20,6 +21,8 @@ import { LoginFormComponent } from './layout/shared/auth/login-form/login-form.c
 import { PassResetFormComponent } from './layout/shared/auth/pass-reset-form/pass-reset-form.component';
 import { ForgotPassFormComponent } from './layout/shared/auth/forgot-pass-form/forgot-pass-form.component';
 import { RegisterFormComponent } from './layout/shared/auth/register-form/register-form.component';
+import { HomeComponent } from './routes-modules/home/home.component';
+import { HomeMainContentComponent } from './routes-modules/home/home-layout/home-main-content/home-main-content.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { RegisterFormComponent } from './layout/shared/auth/register-form/regist
     PassResetFormComponent,
     ForgotPassFormComponent,
     RegisterFormComponent,
+    HomeComponent,
+    HomeMainContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { RegisterFormComponent } from './layout/shared/auth/register-form/regist
     HttpClientModule,
     RouterModule,
     SharedModule,
-    AdminModule,
+    //AdminModule,
     AppRoutingModule,
   ],
   providers: [{
@@ -49,7 +54,9 @@ import { RegisterFormComponent } from './layout/shared/auth/register-form/regist
     provide: HTTP_INTERCEPTORS,
     useClass: CatchErrorInterceptor,
     multi: true,
-  }],
+  }, 
+    DatePipe
+  ],
   entryComponents: [],
   bootstrap: [AppComponent]
 })

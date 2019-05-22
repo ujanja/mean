@@ -7,8 +7,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';//Bootstrap
 //Font-Awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faEnvelope, faBell, faTimes,
+import { faTimes, faUserAlt, faIdBadge, faUserCircle, faBars, faFolderMinus, faChevronCircleDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { faHome, faEnvelope, faBell, faTimes,
     FlexLayoutModule,
     FontAwesomeModule,
     NgbModule,
+    RouterModule
   ],
   exports: [
     FormsModule,
@@ -23,12 +25,13 @@ import { faHome, faEnvelope, faBell, faTimes,
     FlexLayoutModule,
     FontAwesomeModule,
     NgbModule,
+    RouterModule
   ],
   declarations: [],
 })
 export class SharedModule { 
   constructor() {
     // Add an icon to the library for convenient access in other components
-    library.add(faHome, faBell, faEnvelope, faTimes);
+    library.add(faBars, faFolderMinus, faChevronCircleDown, faTimes, faUserAlt, faIdBadge, faUserCircle);
   }
 }

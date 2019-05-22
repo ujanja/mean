@@ -1,3 +1,53 @@
-<p>
-  pass-reset-form works!
-</p>
+<div class ="container"><!--Pass reset container-->
+  
+  <!--
+       <p *ngIf="verificationSuccessAlert.type" style="text-align:center">
+          <ngb-alert type=success [dismissible]="false">
+             <div><h6><strong><i class="fas fa-check-circle"></i> {{verificationSuccessAlert.type}}</strong></h6></div>
+                {{verificationSuccessAlert.details}}
+          </ngb-alert>
+       </p>
+     -->
+     <p *ngIf="errorAlert.type" style="text-align:center">
+        <ngb-alert type=danger [dismissible]="false">
+           <div><h6><strong><i class="fas fa-exclamation"></i> {{errorAlert.type}}</strong></h6></div>
+              {{errorAlert.details}}
+        </ngb-alert>
+     </p>
+  
+       
+       <form [formGroup]="passResetForm" *ngIf="!errorAlert.type">
+  
+       <h5 style="text-align:center;">PASSWORD RESET FORM</h5>
+       <p style="text-align:center;">Set your new password.</p>
+       <p *ngIf="validationErrorAlert.type" style="text-align:center">
+           <ngb-alert type=danger [dismissible]="false">
+              <div><h6><strong><i class="fas fa-exclamation"></i> {{validationErrorAlert.type}}</strong></h6></div>
+                 {{validationErrorAlert.details}}
+           </ngb-alert>
+        </p>
+   
+       <div class="form-group">
+           <label class="label-pd-b_mr-b-0" for="newPassword"><small>New Password</small></label>
+           <input class="form-control" formControlName="newPassword" type="password" name="newPassword" required>
+           <div style="margin-top:-5px" *ngFor="let validation of form_validation_messages.password">
+              <small style="color:red" class="error-message" *ngIf="passResetForm.get('newPassword').hasError(validation.type) && (passResetForm.get('newPassword').dirty && passResetForm.get('newPassword').touched  || passResetForm.get('newPassword').touched) ">
+                 {{validation.message}} 
+              </small>
+           </div>
+        </div>
+        <div class="form-group">
+           <label class="label-pd-b_mr-b-0" for="repeatNewPassword"><small>Repeat New Password</small></label>
+           <input class="form-control" formControlName="repeatNewPassword" type="password" name="repeatNewPassword" required>
+           <div style="margin-top:-5px" *ngFor="let validation of form_validation_messages.password">
+              <small style="color:red" class="error-message" *ngIf="passResetForm.get('repeatNewPassword').hasError(validation.type) && (passResetForm.get('repeatNewPassword').dirty && passResetForm.get('repeatNewPassword').touched  || passResetForm.get('repeatNewPassword').touched) ">
+                 {{validation.message}} 
+              </small>
+           </div>
+        </div>
+       <div class="form-group pass-reset-btn-div">
+          <button (click)="passReset()" class="btn btn-primary btn-block pass-reset-btn-div" [disabled]="!passResetForm.valid">Change Password</button>
+       </div>
+   
+    </form>
+  </div>
