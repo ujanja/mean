@@ -84,7 +84,7 @@ module.exports = {
                     to: user.email,
                     subject: 'Email confirmation!', // Subject line
                     html: ` 
-                      <p>Hi, ${registeredUser.username}. Welcome to GameChain.</p>
+                      <p>Hi, ${registeredUser.username}. Welcome to Ujanja.</p>
                       <To verify your email address click below.>
                       <a href='${req.protocol}://${req.headers.host}/home/verifyEmail/${emailVerificationSecretToken}/${registeredUser._id}'>
                       Click here to verify your email address.
@@ -237,7 +237,7 @@ module.exports = {
         var mailOptions = {
           to: user.email,
           from: `"interactTeam 👻" <${config.authInteract.email}>`,
-          subject: 'GameChain Password Reset',
+          subject: 'Ujanja Password Reset',
           html: ` 
             <p>You are receiving this because you (or someone else) have requested a password reset for your account.</p>
             <a href='${req.protocol}://${req.headers.host}/home/resetPass/${token}'>
