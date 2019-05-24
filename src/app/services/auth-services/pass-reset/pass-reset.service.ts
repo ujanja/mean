@@ -10,7 +10,7 @@ export class PassResetService {
   constructor(private http : HttpClient) { }
 
 
-  // Add "adminWhoEditedThisGame" and "howManyTimesThisGameHasBeenEdited" in the schema later 
+  // sendResetLink
   sendResetLink(email:string) : Observable <any> {
     return Observable.create(observer => {
       this.http.post('/api/auth/sendPassResetToken', {
